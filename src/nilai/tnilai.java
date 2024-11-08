@@ -4,6 +4,7 @@
  */
 package nilai;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -345,6 +346,15 @@ public class tnilai extends javax.swing.JFrame {
 
     private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
         // TODO add your handling code here:
+ int selectedRow = table.getSelectedRow();
+    if (selectedRow != -1) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.removeRow(selectedRow);
+    } else {
+        JOptionPane.showMessageDialog(this, "Silakan pilih baris yang ingin dihapus.");
+    }
+
+    // Kosongkan kolom input
     nims.setText("");
     namas.setText("");
     alamat.setText("");
